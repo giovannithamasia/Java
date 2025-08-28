@@ -1,2 +1,2 @@
 # Java
-Exercícios  em Java feitos durante meus estudos.
+Exercícios e exemplos feitos em Java  durante meus estudos.
