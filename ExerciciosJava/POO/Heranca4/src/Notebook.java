@@ -6,7 +6,6 @@ public class Notebook implements Dispositivo {
     private boolean conectado;
 
     public Notebook(String modelo, int bateria, boolean conectado) {
-        super();
         this.modelo = modelo;
         this.bateria = bateria;
         this.conectado = conectado;
