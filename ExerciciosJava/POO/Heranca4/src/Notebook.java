@@ -1,41 +1,63 @@
-public class Notebook  extends Computador  implements Dispositivo{
 
+public class Notebook implements Dispositivo {
 
+    private String modelo;
     private int bateria;
+    private boolean conectado;
 
-
-    public Notebook(String modelo, boolean conectado, int bateria) {
-        super(modelo, conectado);
-        setBateria(bateria);
+    public Notebook(String modelo, int bateria, boolean conectado) {
+        super();
+        this.modelo = modelo;
+        this.bateria = bateria;
+        this.conectado = conectado;
     }
 
+
+    @Override
+    public boolean ligar() {
+        if (conectado || bateria > 10) {
+            return true;
+        }
+        return false;
+    }
+
+
+    @Override
+    public boolean desligar() {
+        return ligar();
+    }
+
+
+    @Override
+    public String obterStatus() {
+        if (ligar()) {
+            return "O notebook está ligado";
+        }
+        return "O notebook está desligado";
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 
     public int getBateria() {
         return bateria;
     }
 
     public void setBateria(int bateria) {
-        if (bateria<0){
-            throw new IllegalArgumentException("Bateria invalida");
-        }
         this.bateria = bateria;
     }
 
-    @Override
-    public boolean ligar() {
-        if (isConectado() || getBateria()>10){
-            return true;
-        }
-        return false;
+    public boolean isConectado() {
+        return conectado;
     }
 
-    @Override
-    public boolean desligar() {
-        return super.desligar();
+    public void setConectado(boolean conectado) {
+        this.conectado = conectado;
     }
 
-    @Override
-    public String obterStatus() {
-        return super.obterStatus()+ " bateria "+getBateria() ;
-    }
 }
